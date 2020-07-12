@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: joomla-pvc
+  labels:
+    env: joomlaVolume
+spec:
+  storageClassName: myclass
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi

@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysqldeploy
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      env: mysqlTest
+  template:
+    metadata:
+      name: dbos
+      labels:
+        env: mysqlTest
+    spec:
+      containers:
+        - name: mysqlcon
+          image: mysql:5.7
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef: 
+                  name: dbsecure
+                  key: root
+            - name: MYSQL_USER
+              value: ayush
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: dbsecure
+                  key: user
+            - name: MYSQL_DATABASE
+              value: database
+          volumeMounts:
+            - name: db
+              mountPath: /var/lib/mysql
+      volumes:
+        - name: db
+          persistentVolumeClaim:
+            claimName: mysqlpvc    
+
+        

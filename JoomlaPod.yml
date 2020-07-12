@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: joomla-pod
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      env: joomlaTest
+  template:
+    metadata:
+      name: joomlaos
+      labels:
+        env: joomlaTest
+    spec:
+      containers: 
+        - name: joomlacon
+          image: joomla
+          env:
+            - name: JOOMLA_DB_HOST
+              value: mysqlservice
+            - name: JOOMLA_DB_USER
+              value: ayush
+            - name: JOOMLA_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: dbsecure
+                  key: user
+            - name: JOOMLA_DB_NAME
+              value: database
+          volumeMounts: 
+            - name: storage
+              mountPath: /var/www/html
+      volumes:
+        - name: storage
+          persistentVolumeClaim:
+            claimName: joomla-pvc  
+

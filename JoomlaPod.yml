@@ -20,7 +20,7 @@ spec:
           image: joomla
           env:
             - name: JOOMLA_DB_HOST
-              value: mysqlservice
+              value: mysqldeploy
             - name: JOOMLA_DB_USER
               value: ayush
             - name: JOOMLA_DB_PASSWORD

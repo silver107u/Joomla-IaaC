@@ -9,9 +9,9 @@ Joomla is a free and open-source content management system like WordPress, Drupa
 ### Date Created
 This project is created on July 15th,2020. ReadME.md the file also created on the same date.
 
-# The Detail description of the project and it's implementation can get form [My Blog](https://medium.com/@silver107u/lets-deploy-joomla-mysql-infrastructure-on-amazon-eks-2ec979628602?source=friends_link&sk=4b3d14da0748f4804e5278fd95d9cf34)
+## The Detail description of the project and it's implementation can get form [My Blog](https://medium.com/@silver107u/lets-deploy-joomla-mysql-infrastructure-on-amazon-eks-2ec979628602?source=friends_link&sk=4b3d14da0748f4804e5278fd95d9cf34)
 
-###Credits 
+### Credits 
 
 The credits of the project go to Mr.Vimal Daga. He takes a great initiative and teaches AWS EKS. His teaching style is very different because of which anyone can learn anything. He designs the program and provides all the necessary knowledge which helps me to build that project.  
 
